@@ -1,0 +1,16 @@
+_schema-version: "2.1"
+ID: Hana_Workshop
+version: 0.0.1
+modules:
+- name: my_db
+  type: hdb
+  path: my_db
+  requires:
+  - name: hdi_my_db
+    properties:
+      TARGET_CONTAINER: ~{hdi-container-name}
+resources:
+- name: hdi_my_db
+  type: com.sap.xs.hdi-container
+  properties:
+    hdi-container-name: ${service-name}
